@@ -10,7 +10,10 @@ VERSION = "1.0.0"
 
 build_exe_options = {
     "packages": ["os"],
-    "includes": ["numpy", "numpy.core._methods", "numpy.lib.format"],
+    "includes": [
+        "numpy", "numpy.core._methods", "numpy.lib.format",
+        "scipy", "scipy.fftpack", "scipy.fftpack._fftpack"
+    ],
     "excludes": [
         "acyncio", "certifi", "chardet", "cloudpickle",
         "colorama",
@@ -29,9 +32,7 @@ build_exe_options = {
         "parso",
         "pydoc",
         "pydoc_data",
-        "pywt",
         "tkinter",
-        "unittest",
         "urllib",
         "xml",
         "xmlrpc"
@@ -41,8 +42,8 @@ build_exe_options = {
 
 base_cui = None
 base_gui = None
-if sys.platform == "win32":
-    base_gui = "Win32GUI"
+#if sys.platform == "win32":
+#    base_gui = "Win32GUI"
 
 setup(
     name="nnc_utils",
