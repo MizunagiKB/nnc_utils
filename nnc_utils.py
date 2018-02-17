@@ -2,6 +2,7 @@
 # ------------------------------------------------------------------ import(s)
 import sys
 import os
+import hashlib
 
 import imagehash
 
@@ -29,15 +30,30 @@ class CMainWindow(PyQt5.QtWidgets.QMainWindow):
         self.ui.actionCIDProceed.triggered.connect(self.actionCIDProceed)
 
     def cb_log(self, msg):
-
         self.ui.nnc_log.appendPlainText(msg)
 
+    def hash_sha1(self, image, hash_size=8):
+        return hashlib.sha1(image.tobytes()).hexdigest()
+
+    def hash_md5(self, image, hash_size=8):
+        return hashlib.md5(image.tobytes()).hexdigest()
+
     def actionCIDSelect_src_dir(self):
+
+        src_dir_curr = self.ui.cid_src_dir.text()
+
+        if len(src_dir_curr) == 0:
+            src_dir_curr = os.getcwd()
+        elif os.path.exists(src_dir_curr) is False:
+            src_dir_curr = os.getcwd()
+        else:
+            pass
 
         o = PyQt5.QtWidgets.QFileDialog()
         src_dir = o.getExistingDirectory(
             self,
-            "Choose dir", os.getcwd(),
+            "Choose dir",
+            src_dir_curr,
             options=PyQt5.QtWidgets.QFileDialog.DontResolveSymlinks | PyQt5.QtWidgets.QFileDialog.ShowDirsOnly
         )
 
@@ -53,6 +69,8 @@ class CMainWindow(PyQt5.QtWidgets.QMainWindow):
             "Difference hash": imagehash.dhash,
             "Difference hash (vertical)": imagehash.dhash_vertical,
             "Wavelet hash": imagehash.whash,
+            "sha1": self.hash_sha1,
+            "md5": self.hash_md5
         }
 
         if len(self.ui.cid_src_dir.text()) == 0:
