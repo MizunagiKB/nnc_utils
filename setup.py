@@ -5,7 +5,7 @@ from cx_Freeze import setup, Executable
 
 
 # ------------------------------------------------------------------- param(s)
-VERSION = "1.0.0"
+VERSION = "1.1.0"
 
 
 build_exe_options = {
