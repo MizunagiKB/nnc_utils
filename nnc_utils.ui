@@ -29,7 +29,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>NNC Utils</string>
   </property>
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
@@ -298,8 +298,8 @@
      <y>161</y>
     </hint>
     <hint type="destinationlabel">
-     <x>239</x>
-     <y>179</y>
+     <x>-1</x>
+     <y>-1</y>
     </hint>
    </hints>
   </connection>

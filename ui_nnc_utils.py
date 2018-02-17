@@ -119,7 +119,7 @@ class Ui_Dialog(object):
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
+        Dialog.setWindowTitle(_translate("Dialog", "NNC Utils"))
         self.label.setText(_translate("Dialog", "Target dir"))
         self.label_2.setText(_translate("Dialog", "Hash"))
         self.cid_hash.setItemText(0, _translate("Dialog", "Average hash"))
