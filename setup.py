@@ -42,8 +42,8 @@ build_exe_options = {
 
 base_cui = None
 base_gui = None
-#if sys.platform == "win32":
-#    base_gui = "Win32GUI"
+if sys.platform == "win32":
+    base_gui = "Win32GUI"
 
 setup(
     name="nnc_utils",
